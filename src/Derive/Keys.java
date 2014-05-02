@@ -80,7 +80,7 @@ public class Keys {
 
     public static String getMacId() {
         InetAddress ip;
-        StringBuilder sb = null ;
+        StringBuilder sb = null;
         try {
 
             ip = InetAddress.getLocalHost();
@@ -89,7 +89,6 @@ public class Keys {
             byte[] mac = network.getHardwareAddress();
 
            // System.out.print("Current MAC address : ");
-
             sb = new StringBuilder();
             for (int i = 0; i < mac.length; i++) {
                 sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
@@ -108,6 +107,4 @@ public class Keys {
         return sb.toString();
     }
 
-    
-    
 }
