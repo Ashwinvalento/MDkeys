@@ -43,7 +43,8 @@ public class main {
 
         //online activation
         System.out.println("\n---------Online Activation------\n");
-        String onlineLicense;
+        System.out.println("\nOnline Step 1");
+        String onlineLicense = null;
         try {
 
             onlineLicense = cA.getLicenseOnline(url);
@@ -53,5 +54,11 @@ public class main {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        System.out.println("\nOnline Step 2");
+        if(cA.validate(onlineLicense)){
+            System.out.println("*******Online Validation Successfull********");
+        }else{
+            System.out.println("xxxxxxx**Online Validation failed** xxxxxxx");
+        }
     }
 }
