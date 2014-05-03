@@ -1,0 +1,36 @@
+<html>
+<head>
+<title> ONLINE PAYMENT GATEWAY </title>
+<script>
+function getParameterByName(name)
+{
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  var regexString = "[\\?&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexString);
+  var found = regex.exec(window.location.search);
+  if(found == null)
+    return "";
+  else
+    return decodeURIComponent(found[1].replace(/\+/g, " "));
+}
+
+function tokenVal()
+{
+var Parameter = getParameterByName('token');
+var input = document.getElementById("token");
+input.value = Parameter;
+}
+</script>
+</head>
+
+<body onload="tokenVal()">
+
+<form action="onlineauthenticate.jsp" method="POST">
+<input type="hidden" name="token" id="token" >
+First name: <input type="text" name="firstname"><br>
+Last name: <input type="text" name="lastname"><br>
+Credit card number: <input type="text" name="cardno"><br>
+<input type="submit" value="PAY">
+<br/>
+</form>
+</body>
