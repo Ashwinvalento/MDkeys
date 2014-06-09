@@ -90,7 +90,7 @@ public final class Keys {
      * This function returns The MAC ID of the client machine
      * @return MAC ID of client machine
      */
-    public final static String getMacId() {
+    public final static String getMacID() {
         InetAddress ip;
         StringBuilder sb = null;
         try {

@@ -46,7 +46,7 @@ public class ClientAuthentication {
     public final String getMachineKeys() {
         Keys keys = new Keys();
         String MBID = keys.getMotherBoardSerialNumber();
-        String MACID = keys.getMacId();
+        String MACID = keys.getMacID();
         String HDDID = keys.getHDDSerialNumber();
         return MBID + MACID + HDDID;
     }
@@ -66,7 +66,7 @@ public class ClientAuthentication {
      * @return The unique Machine dependent token
      */
     public final String getToken(TokenAlgorithm tokenAlgorithm) {
-        String token = "";
+        String token = null;
         TokenAlgorithm defaultAlgorithm = new TokenAlgorithm();
         if (tokenAlgorithm == null) {
             tokenAlgorithm = defaultAlgorithm;
@@ -107,11 +107,7 @@ public class ClientAuthentication {
         }
 
         validateLicense = licenseAlgorithm.algorithm(token + passPhrase).toUpperCase();
-
-        if (License.equals(validateLicense)) {
-            return true;
-        }
-        return false;
+        return License.equals(validateLicense);
     }
 
 
