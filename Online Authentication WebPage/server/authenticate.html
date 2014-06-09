@@ -1,0 +1,58 @@
+<html>
+<head>
+<title> ONLINE PAYMENT GATEWAY </title>
+<script>
+function getParameterByName(name)
+{
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  var regexString = "[\\?&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexString);
+  var found = regex.exec(window.location.search);
+  if(found == null)
+    return "";
+  else
+    return decodeURIComponent(found[1].replace(/\+/g, " "));
+}
+
+function tokenVal()
+{
+var Parameter = getParameterByName('token');
+var input = document.getElementById("token");
+input.value = Parameter;
+}
+</script>
+<link href="c1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onLoad="tokenVal()">
+<div id="container">
+<div class="top">
+
+</div>
+<div class="content">
+<div class="left">
+<form action="onlineauthenticate.jsp" method="POST">
+<table>
+<tr>
+  <td colspan="2"><b>Payment Information</b><input type="hidden" name="token" id="token" ></td></tr>
+<tr><td>First Name</td><td> <input type="text" name="firstname"></td></tr>
+<tr><td>Last Name</td><td><input type="text" name="lastname"></td></tr>
+<tr><td>Credit card number:</td><td><input type="text" name="cardno"></td></tr>
+<tr><td>Amount Payable :</td><td> Rs. 3500/-</td></tr>
+<tr><td colspan="2"><input type="submit" value="PAY"></td></tr>
+</table>
+</form>
+<center>
+<p> Thank you for your Interest In buying this Software.<br/><br/>
+You will be redirected to the License page once the payment is successful </p>
+</center>
+</div>
+</div>
+<div class="footer">
+<p>
+&copy;2014Paymentgateway 
+</p>
+</div>
+</div>
+</body>
+</html>
