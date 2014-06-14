@@ -1,0 +1,10 @@
+<%@page import="java.io.PrintWriter,Server.ServerAuthentication,utils.LicenseAlgorithm"%>
+
+<%!   
+public class algo extends LicenseAlgorithm { 
+
+public String algorithm(String input) {
+return input+"hello";
+}
+}  
+%>  
